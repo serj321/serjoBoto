@@ -48,4 +48,4 @@ async def on_message(message):
         await message.channel.send("This can be used anywhere!")
         return 
 
-client.run(TOKEN)
+client.run("OTY2MDMxOTc2NzY1MjI3MDU4.Yl71Yw.GYDq14pgZdHfND2nxunbUtY0Rvc")
