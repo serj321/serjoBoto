@@ -39,9 +39,9 @@ async def on_message(message):
 
         elif user_text.startswith("!civ,"):
             civilization = user_text.split(",")[1]
-            civScraper.searchCiv(civilization)
+            civ_desc = civScraper.searchCiv(civilization)
+            await message.channel.send(f"```\n{civ_desc}```")
             
-
 
     
     if user_text == "!anywhere":
