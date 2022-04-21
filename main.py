@@ -22,7 +22,13 @@ async def on_message(message):
     if message.author == client.user:
         return
 
+
+
     user_text = user_message.lower()
+
+    if "my friend" in user_text:
+        await message.channel.send("MY FRIENDD!!!")
+
     if user_text.startswith("!"):
 
         if user_text == "!random":
@@ -34,13 +40,11 @@ async def on_message(message):
             num_to_side = {1: "heads", 2: "tails"}
             await message.channel.send(num_to_side[random.randint(1,2)])
 
-        elif "my friend" in user_text:
-            await message.channel.send("MY FRIENDD!!!")
 
         elif user_text.startswith("!civ,"):
             civilization = user_text.split(",")[1]
             civ_desc = civScraper.searchCiv(civilization)
-            await message.channel.send(f"```\n{civ_desc}```")
+            await message.channel.send(civ_desc)
             
 
     
@@ -48,4 +52,4 @@ async def on_message(message):
         await message.channel.send("This can be used anywhere!")
         return 
 
-client.run("OTY2MDMxOTc2NzY1MjI3MDU4.Yl71Yw.GYDq14pgZdHfND2nxunbUtY0Rvc")
+client.run(TOKEN)
