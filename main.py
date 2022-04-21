@@ -1,7 +1,9 @@
 import discord
+import os
 import random
+import civScraper
 
-TOKEN = "OTY2MDMxOTc2NzY1MjI3MDU4.Yl71Yw.QTfwEulcF-FH1KJRySI_775t9eI"
+TOKEN = os.getenv("TOKEN")
 
 client = discord.Client()
 
@@ -20,19 +22,29 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.channel.name == "general":
-        if user_message.lower() == "!random":
+    user_text = user_message.lower()
+    if user_text.startswith("!"):
+
+        if user_text == "!random":
             response = f"{random.randint(1, 100)}"
             await message.channel.send(response)
             return
-        elif user_message.lower() == "!flip":
+
+        elif user_text == "!flip":
             num_to_side = {1: "heads", 2: "tails"}
             await message.channel.send(num_to_side[random.randint(1,2)])
-        elif "my friend" in user_message.lower():
+
+        elif "my friend" in user_text:
             await message.channel.send("MY FRIENDD!!!")
 
+        elif user_text.startswith("!civ,"):
+            civilization = user_text.split(",")[1]
+            civScraper.searchCiv(civilization)
+            
+
+
     
-    if user_message.lower() == "!anywhere":
+    if user_text == "!anywhere":
         await message.channel.send("This can be used anywhere!")
         return 
 
