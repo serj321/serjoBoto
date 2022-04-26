@@ -6,13 +6,14 @@ using my raspberry pi to do so.
 
 some commands:
 
-!random: genearates a random number from 1-100 
+!random: genearates a random number from 1-100.
 
-!flip: flips a coin 
+!flip: flips a coin.
 
 !civ,{civilization}: replace {civilization} with a faction from the game Civilization VI to then return the unique features of the faction.
 (this uses beautifulsoup to webscrape the data.) 
 
+!quote: prints out a random quote retrieved from an API.
 
 passive:
 
